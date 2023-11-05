@@ -1,0 +1,208 @@
+Broker: 0 BTR + 1 ETR = 1. Added Ethereum trade request. Produced: 0 BTR + 1 ETR = 1 in 0.000 s.
+Broker: 0 BTR + 0 ETR = 0. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 1 ETR = 1 consumed in 0.001 s.
+Broker: 1 BTR + 0 ETR = 1. Added Bitcoin trade request. Produced: 1 BTR + 1 ETR = 2 in 0.004 s.
+Broker: 0 BTR + 0 ETR = 0. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 1 BTR + 0 ETR = 1 consumed in 0.005 s.
+Broker: 0 BTR + 1 ETR = 1. Added Ethereum trade request. Produced: 1 BTR + 2 ETR = 3 in 0.010 s.
+Broker: 0 BTR + 0 ETR = 0. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 2 ETR = 2 consumed in 0.014 s.
+Broker: 1 BTR + 0 ETR = 1. Added Bitcoin trade request. Produced: 2 BTR + 2 ETR = 4 in 0.019 s.
+Broker: 1 BTR + 1 ETR = 2. Added Ethereum trade request. Produced: 2 BTR + 3 ETR = 5 in 0.020 s.
+Broker: 0 BTR + 1 ETR = 1. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 2 BTR + 0 ETR = 2 consumed in 0.024 s.
+Broker: 0 BTR + 0 ETR = 0. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 3 ETR = 3 consumed in 0.027 s.
+Broker: 0 BTR + 1 ETR = 1. Added Ethereum trade request. Produced: 2 BTR + 4 ETR = 6 in 0.030 s.
+Broker: 1 BTR + 1 ETR = 2. Added Bitcoin trade request. Produced: 3 BTR + 4 ETR = 7 in 0.034 s.
+Broker: 1 BTR + 2 ETR = 3. Added Ethereum trade request. Produced: 3 BTR + 5 ETR = 8 in 0.040 s.
+Broker: 1 BTR + 1 ETR = 2. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 4 ETR = 4 consumed in 0.041 s.
+Broker: 0 BTR + 1 ETR = 1. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 3 BTR + 0 ETR = 3 consumed in 0.043 s.
+Broker: 1 BTR + 1 ETR = 2. Added Bitcoin trade request. Produced: 4 BTR + 5 ETR = 9 in 0.049 s.
+Broker: 1 BTR + 2 ETR = 3. Added Ethereum trade request. Produced: 4 BTR + 6 ETR = 10 in 0.050 s.
+Broker: 1 BTR + 1 ETR = 2. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 5 ETR = 5 consumed in 0.054 s.
+Broker: 1 BTR + 2 ETR = 3. Added Ethereum trade request. Produced: 4 BTR + 7 ETR = 11 in 0.060 s.
+Broker: 0 BTR + 2 ETR = 2. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 4 BTR + 0 ETR = 4 consumed in 0.062 s.
+Broker: 1 BTR + 2 ETR = 3. Added Bitcoin trade request. Produced: 5 BTR + 7 ETR = 12 in 0.064 s.
+Broker: 1 BTR + 1 ETR = 2. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 6 ETR = 6 consumed in 0.067 s.
+Broker: 1 BTR + 2 ETR = 3. Added Ethereum trade request. Produced: 5 BTR + 8 ETR = 13 in 0.071 s.
+Broker: 2 BTR + 2 ETR = 4. Added Bitcoin trade request. Produced: 6 BTR + 8 ETR = 14 in 0.079 s.
+Broker: 2 BTR + 1 ETR = 3. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 7 ETR = 7 consumed in 0.080 s.
+Broker: 1 BTR + 1 ETR = 2. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 5 BTR + 0 ETR = 5 consumed in 0.081 s.
+Broker: 1 BTR + 2 ETR = 3. Added Ethereum trade request. Produced: 6 BTR + 9 ETR = 15 in 0.082 s.
+Broker: 1 BTR + 3 ETR = 4. Added Ethereum trade request. Produced: 6 BTR + 10 ETR = 16 in 0.092 s.
+Broker: 1 BTR + 2 ETR = 3. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 8 ETR = 8 consumed in 0.093 s.
+Broker: 2 BTR + 2 ETR = 4. Added Bitcoin trade request. Produced: 7 BTR + 10 ETR = 17 in 0.094 s.
+Broker: 1 BTR + 2 ETR = 3. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 6 BTR + 0 ETR = 6 consumed in 0.100 s.
+Broker: 1 BTR + 3 ETR = 4. Added Ethereum trade request. Produced: 7 BTR + 11 ETR = 18 in 0.102 s.
+Broker: 1 BTR + 2 ETR = 3. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 9 ETR = 9 consumed in 0.106 s.
+Broker: 2 BTR + 2 ETR = 4. Added Bitcoin trade request. Produced: 8 BTR + 11 ETR = 19 in 0.109 s.
+Broker: 2 BTR + 3 ETR = 5. Added Ethereum trade request. Produced: 8 BTR + 12 ETR = 20 in 0.112 s.
+Broker: 2 BTR + 2 ETR = 4. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 10 ETR = 10 consumed in 0.119 s.
+Broker: 1 BTR + 2 ETR = 3. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 7 BTR + 0 ETR = 7 consumed in 0.120 s.
+Broker: 1 BTR + 3 ETR = 4. Added Ethereum trade request. Produced: 8 BTR + 13 ETR = 21 in 0.123 s.
+Broker: 2 BTR + 3 ETR = 5. Added Bitcoin trade request. Produced: 9 BTR + 13 ETR = 22 in 0.124 s.
+Broker: 2 BTR + 2 ETR = 4. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 11 ETR = 11 consumed in 0.132 s.
+Broker: 2 BTR + 3 ETR = 5. Added Ethereum trade request. Produced: 9 BTR + 14 ETR = 23 in 0.133 s.
+Broker: 3 BTR + 3 ETR = 6. Added Bitcoin trade request. Produced: 10 BTR + 14 ETR = 24 in 0.139 s.
+Broker: 2 BTR + 3 ETR = 5. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 8 BTR + 0 ETR = 8 consumed in 0.140 s.
+Broker: 2 BTR + 4 ETR = 6. Added Ethereum trade request. Produced: 10 BTR + 15 ETR = 25 in 0.144 s.
+Broker: 2 BTR + 3 ETR = 5. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 12 ETR = 12 consumed in 0.146 s.
+Broker: 2 BTR + 4 ETR = 6. Added Ethereum trade request. Produced: 10 BTR + 16 ETR = 26 in 0.154 s.
+Broker: 3 BTR + 4 ETR = 7. Added Bitcoin trade request. Produced: 11 BTR + 16 ETR = 27 in 0.155 s.
+Broker: 3 BTR + 3 ETR = 6. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 13 ETR = 13 consumed in 0.159 s.
+Broker: 2 BTR + 3 ETR = 5. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 9 BTR + 0 ETR = 9 consumed in 0.160 s.
+Broker: 2 BTR + 4 ETR = 6. Added Ethereum trade request. Produced: 11 BTR + 17 ETR = 28 in 0.164 s.
+Broker: 3 BTR + 4 ETR = 7. Added Bitcoin trade request. Produced: 12 BTR + 17 ETR = 29 in 0.170 s.
+Broker: 3 BTR + 3 ETR = 6. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 14 ETR = 14 consumed in 0.172 s.
+Broker: 3 BTR + 4 ETR = 7. Added Ethereum trade request. Produced: 12 BTR + 18 ETR = 30 in 0.174 s.
+Broker: 2 BTR + 4 ETR = 6. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 10 BTR + 0 ETR = 10 consumed in 0.179 s.
+Broker: 2 BTR + 5 ETR = 7. Added Ethereum trade request. Produced: 12 BTR + 19 ETR = 31 in 0.184 s.
+Broker: 2 BTR + 4 ETR = 6. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 0 BTR + 15 ETR = 15 consumed in 0.185 s.
+Broker: 3 BTR + 4 ETR = 7. Added Bitcoin trade request. Produced: 13 BTR + 19 ETR = 32 in 0.186 s.
+Broker: 3 BTR + 5 ETR = 8. Added Ethereum trade request. Produced: 13 BTR + 20 ETR = 33 in 0.194 s.
+Broker: 3 BTR + 4 ETR = 7. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 10 BTR + 1 ETR = 11 consumed in 0.198 s.
+Broker: 2 BTR + 4 ETR = 6. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 1 BTR + 15 ETR = 16 consumed in 0.199 s.
+Broker: 3 BTR + 4 ETR = 7. Added Bitcoin trade request. Produced: 14 BTR + 20 ETR = 34 in 0.201 s.
+Broker: 3 BTR + 5 ETR = 8. Added Ethereum trade request. Produced: 14 BTR + 21 ETR = 35 in 0.205 s.
+Broker: 3 BTR + 4 ETR = 7. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 1 BTR + 16 ETR = 17 consumed in 0.212 s.
+Broker: 3 BTR + 5 ETR = 8. Added Ethereum trade request. Produced: 14 BTR + 22 ETR = 36 in 0.215 s.
+Broker: 4 BTR + 5 ETR = 9. Added Bitcoin trade request. Produced: 15 BTR + 22 ETR = 37 in 0.216 s.
+Broker: 3 BTR + 5 ETR = 8. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 11 BTR + 1 ETR = 12 consumed in 0.217 s.
+Broker: 3 BTR + 6 ETR = 9. Added Ethereum trade request. Produced: 15 BTR + 23 ETR = 38 in 0.225 s.
+Broker: 3 BTR + 5 ETR = 8. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 1 BTR + 17 ETR = 18 consumed in 0.226 s.
+Broker: 4 BTR + 5 ETR = 9. Added Bitcoin trade request. Produced: 16 BTR + 23 ETR = 39 in 0.231 s.
+Broker: 4 BTR + 6 ETR = 10. Added Ethereum trade request. Produced: 16 BTR + 24 ETR = 40 in 0.235 s.
+Broker: 4 BTR + 5 ETR = 9. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 11 BTR + 2 ETR = 13 consumed in 0.236 s.
+Broker: 3 BTR + 5 ETR = 8. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 2 BTR + 17 ETR = 19 consumed in 0.239 s.
+Broker: 3 BTR + 6 ETR = 9. Added Ethereum trade request. Produced: 16 BTR + 25 ETR = 41 in 0.245 s.
+Broker: 4 BTR + 6 ETR = 10. Added Bitcoin trade request. Produced: 17 BTR + 25 ETR = 42 in 0.246 s.
+Broker: 4 BTR + 5 ETR = 9. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 2 BTR + 18 ETR = 20 consumed in 0.253 s.
+Broker: 3 BTR + 5 ETR = 8. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 12 BTR + 2 ETR = 14 consumed in 0.255 s.
+Broker: 3 BTR + 6 ETR = 9. Added Ethereum trade request. Produced: 17 BTR + 26 ETR = 43 in 0.256 s.
+Broker: 4 BTR + 6 ETR = 10. Added Bitcoin trade request. Produced: 18 BTR + 26 ETR = 44 in 0.262 s.
+Broker: 4 BTR + 5 ETR = 9. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 2 BTR + 19 ETR = 21 consumed in 0.266 s.
+Broker: 4 BTR + 6 ETR = 10. Added Ethereum trade request. Produced: 18 BTR + 27 ETR = 45 in 0.267 s.
+Broker: 4 BTR + 5 ETR = 9. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 12 BTR + 3 ETR = 15 consumed in 0.275 s.
+Broker: 5 BTR + 5 ETR = 10. Added Bitcoin trade request. Produced: 19 BTR + 27 ETR = 46 in 0.277 s.
+Broker: 5 BTR + 6 ETR = 11. Added Ethereum trade request. Produced: 19 BTR + 28 ETR = 47 in 0.278 s.
+Broker: 4 BTR + 6 ETR = 10. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 3 BTR + 19 ETR = 22 consumed in 0.279 s.
+Broker: 4 BTR + 7 ETR = 11. Added Ethereum trade request. Produced: 19 BTR + 29 ETR = 48 in 0.288 s.
+Broker: 4 BTR + 6 ETR = 10. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 3 BTR + 20 ETR = 23 consumed in 0.292 s.
+Broker: 5 BTR + 6 ETR = 11. Added Bitcoin trade request. Produced: 20 BTR + 29 ETR = 49 in 0.293 s.
+Broker: 4 BTR + 6 ETR = 10. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 13 BTR + 3 ETR = 16 consumed in 0.295 s.
+Broker: 4 BTR + 7 ETR = 11. Added Ethereum trade request. Produced: 20 BTR + 30 ETR = 50 in 0.298 s.
+Broker: 4 BTR + 6 ETR = 10. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 3 BTR + 21 ETR = 24 consumed in 0.306 s.
+Broker: 4 BTR + 7 ETR = 11. Added Ethereum trade request. Produced: 20 BTR + 31 ETR = 51 in 0.309 s.
+Broker: 5 BTR + 7 ETR = 12. Added Bitcoin trade request. Produced: 21 BTR + 31 ETR = 52 in 0.310 s.
+Broker: 5 BTR + 6 ETR = 11. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 13 BTR + 4 ETR = 17 consumed in 0.314 s.
+Broker: 5 BTR + 7 ETR = 12. Added Ethereum trade request. Produced: 21 BTR + 32 ETR = 53 in 0.319 s.
+Broker: 4 BTR + 7 ETR = 11. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 4 BTR + 21 ETR = 25 consumed in 0.319 s.
+Broker: 5 BTR + 7 ETR = 12. Added Bitcoin trade request. Produced: 22 BTR + 32 ETR = 54 in 0.325 s.
+Broker: 5 BTR + 8 ETR = 13. Added Ethereum trade request. Produced: 22 BTR + 33 ETR = 55 in 0.328 s.
+Broker: 5 BTR + 7 ETR = 12. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 4 BTR + 22 ETR = 26 consumed in 0.332 s.
+Broker: 4 BTR + 7 ETR = 11. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 14 BTR + 4 ETR = 18 consumed in 0.333 s.
+Broker: 4 BTR + 8 ETR = 12. Added Ethereum trade request. Produced: 22 BTR + 34 ETR = 56 in 0.339 s.
+Broker: 5 BTR + 8 ETR = 13. Added Bitcoin trade request. Produced: 23 BTR + 34 ETR = 57 in 0.340 s.
+Broker: 5 BTR + 7 ETR = 12. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 4 BTR + 23 ETR = 27 consumed in 0.345 s.
+Broker: 5 BTR + 8 ETR = 13. Added Ethereum trade request. Produced: 23 BTR + 35 ETR = 58 in 0.349 s.
+Broker: 4 BTR + 8 ETR = 12. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 15 BTR + 4 ETR = 19 consumed in 0.352 s.
+Broker: 5 BTR + 8 ETR = 13. Added Bitcoin trade request. Produced: 24 BTR + 35 ETR = 59 in 0.355 s.
+Broker: 5 BTR + 7 ETR = 12. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 4 BTR + 24 ETR = 28 consumed in 0.359 s.
+Broker: 5 BTR + 8 ETR = 13. Added Ethereum trade request. Produced: 24 BTR + 36 ETR = 60 in 0.360 s.
+Broker: 6 BTR + 8 ETR = 14. Added Bitcoin trade request. Produced: 25 BTR + 36 ETR = 61 in 0.370 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 25 BTR + 37 ETR = 62 in 0.371 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 15 BTR + 5 ETR = 20 consumed in 0.372 s.
+Broker: 5 BTR + 8 ETR = 13. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 5 BTR + 24 ETR = 29 consumed in 0.373 s.
+Broker: 5 BTR + 9 ETR = 14. Added Ethereum trade request. Produced: 25 BTR + 38 ETR = 63 in 0.381 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 26 BTR + 38 ETR = 64 in 0.386 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 5 BTR + 25 ETR = 30 consumed in 0.387 s.
+Broker: 6 BTR + 7 ETR = 13. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 15 BTR + 6 ETR = 21 consumed in 0.392 s.
+Broker: 6 BTR + 8 ETR = 14. Added Ethereum trade request. Produced: 26 BTR + 39 ETR = 65 in 0.393 s.
+Broker: 5 BTR + 8 ETR = 13. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 6 BTR + 25 ETR = 31 consumed in 0.399 s.
+Broker: 6 BTR + 8 ETR = 14. Added Bitcoin trade request. Produced: 27 BTR + 39 ETR = 66 in 0.401 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 27 BTR + 40 ETR = 67 in 0.403 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 15 BTR + 7 ETR = 22 consumed in 0.411 s.
+Broker: 5 BTR + 8 ETR = 13. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 7 BTR + 25 ETR = 32 consumed in 0.412 s.
+Broker: 5 BTR + 9 ETR = 14. Added Ethereum trade request. Produced: 27 BTR + 41 ETR = 68 in 0.413 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 28 BTR + 41 ETR = 69 in 0.416 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 7 BTR + 26 ETR = 33 consumed in 0.426 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 28 BTR + 42 ETR = 70 in 0.427 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 15 BTR + 8 ETR = 23 consumed in 0.431 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 28 BTR + 43 ETR = 71 in 0.437 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 8 BTR + 26 ETR = 34 consumed in 0.439 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 29 BTR + 43 ETR = 72 in 0.440 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 15 BTR + 9 ETR = 24 consumed in 0.450 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 29 BTR + 44 ETR = 73 in 0.451 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 9 BTR + 26 ETR = 35 consumed in 0.452 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 30 BTR + 44 ETR = 74 in 0.455 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 9 BTR + 27 ETR = 36 consumed in 0.465 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 30 BTR + 45 ETR = 75 in 0.466 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 16 BTR + 9 ETR = 25 consumed in 0.469 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 31 BTR + 45 ETR = 76 in 0.470 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 9 BTR + 28 ETR = 37 consumed in 0.478 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 31 BTR + 46 ETR = 77 in 0.479 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 16 BTR + 10 ETR = 26 consumed in 0.489 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 31 BTR + 47 ETR = 78 in 0.490 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 10 BTR + 28 ETR = 38 consumed in 0.491 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 32 BTR + 47 ETR = 79 in 0.492 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 10 BTR + 29 ETR = 39 consumed in 0.504 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 32 BTR + 48 ETR = 80 in 0.532 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 17 BTR + 10 ETR = 27 consumed in 0.532 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 33 BTR + 48 ETR = 81 in 0.533 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 10 BTR + 30 ETR = 40 consumed in 0.544 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 33 BTR + 49 ETR = 82 in 0.546 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 11 ETR = 28 consumed in 0.551 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 33 BTR + 50 ETR = 83 in 0.556 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 11 BTR + 30 ETR = 41 consumed in 0.559 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 34 BTR + 50 ETR = 84 in 0.560 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 12 ETR = 29 consumed in 0.570 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 34 BTR + 51 ETR = 85 in 0.571 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 11 BTR + 31 ETR = 42 consumed in 0.572 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 34 BTR + 52 ETR = 86 in 0.581 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 12 BTR + 31 ETR = 43 consumed in 0.586 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 35 BTR + 52 ETR = 87 in 0.587 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 13 ETR = 30 consumed in 0.589 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 35 BTR + 53 ETR = 88 in 0.591 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 13 BTR + 31 ETR = 44 consumed in 0.599 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 35 BTR + 54 ETR = 89 in 0.601 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 14 ETR = 31 consumed in 0.608 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 36 BTR + 54 ETR = 90 in 0.609 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 14 BTR + 31 ETR = 45 consumed in 0.613 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 36 BTR + 55 ETR = 91 in 0.614 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 14 BTR + 32 ETR = 46 consumed in 0.626 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 36 BTR + 56 ETR = 92 in 0.627 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 15 ETR = 32 consumed in 0.628 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 37 BTR + 56 ETR = 93 in 0.629 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 15 BTR + 32 ETR = 47 consumed in 0.639 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 37 BTR + 57 ETR = 94 in 0.641 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 16 ETR = 33 consumed in 0.647 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 38 BTR + 57 ETR = 95 in 0.648 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 16 BTR + 32 ETR = 48 consumed in 0.653 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 38 BTR + 58 ETR = 96 in 0.654 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 17 ETR = 34 consumed in 0.666 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 39 BTR + 58 ETR = 97 in 0.667 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 16 BTR + 33 ETR = 49 consumed in 0.668 s.
+Broker: 6 BTR + 9 ETR = 15. Added Ethereum trade request. Produced: 39 BTR + 59 ETR = 98 in 0.669 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 17 BTR + 33 ETR = 50 consumed in 0.681 s.
+Broker: 5 BTR + 10 ETR = 15. Added Ethereum trade request. Produced: 39 BTR + 60 ETR = 99 in 0.682 s.
+Broker: 5 BTR + 9 ETR = 14. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 17 BTR + 18 ETR = 35 consumed in 0.686 s.
+Broker: 6 BTR + 9 ETR = 15. Added Bitcoin trade request. Produced: 40 BTR + 60 ETR = 100 in 0.686 s.
+Broker: 6 BTR + 8 ETR = 14. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 17 BTR + 34 ETR = 51 consumed in 0.694 s.
+Broker: 5 BTR + 8 ETR = 13. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 18 BTR + 18 ETR = 36 consumed in 0.704 s.
+Broker: 5 BTR + 7 ETR = 12. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 17 BTR + 35 ETR = 52 consumed in 0.708 s.
+Broker: 5 BTR + 6 ETR = 11. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 17 BTR + 36 ETR = 53 consumed in 0.721 s.
+Broker: 4 BTR + 6 ETR = 10. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 19 BTR + 18 ETR = 37 consumed in 0.724 s.
+Broker: 4 BTR + 5 ETR = 9. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 17 BTR + 37 ETR = 54 consumed in 0.734 s.
+Broker: 4 BTR + 4 ETR = 8. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 19 BTR + 19 ETR = 38 consumed in 0.743 s.
+Broker: 3 BTR + 4 ETR = 7. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 18 BTR + 37 ETR = 55 consumed in 0.747 s.
+Broker: 3 BTR + 3 ETR = 6. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 18 BTR + 38 ETR = 56 consumed in 0.760 s.
+Broker: 2 BTR + 3 ETR = 5. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 20 BTR + 19 ETR = 39 consumed in 0.764 s.
+Broker: 2 BTR + 2 ETR = 4. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 18 BTR + 39 ETR = 57 consumed in 0.776 s.
+Broker: 1 BTR + 2 ETR = 3. Blockchain Y consumed Bitcoin trade request.  Blockchain Y totals: 21 BTR + 19 ETR = 40 consumed in 0.783 s.
+Broker: 1 BTR + 1 ETR = 2. Blockchain X consumed Ethereum trade request.  Blockchain X totals: 18 BTR + 40 ETR = 58 consumed in 0.789 s.
+Broker: 1 BTR + 0 ETR = 1. Blockchain Y consumed Ethereum trade request.  Blockchain Y totals: 21 BTR + 20 ETR = 41 consumed in 0.802 s.
+Broker: 0 BTR + 0 ETR = 0. Blockchain X consumed Bitcoin trade request.  Blockchain X totals: 19 BTR + 40 ETR = 59 consumed in 0.803 s.
+
+REQUEST REPORT
+----------------------------------------
+Bitcoin trade request producer generated 40 requests
+Ethereum trade request producer generated 60 requests
+Blockchain X consumed 19 BTR + 40 ETR = 59 total
+Blockchain Y consumed 21 BTR + 20 ETR = 41 total
+Elapsed time 0.817 s
