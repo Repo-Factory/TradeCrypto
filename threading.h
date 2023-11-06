@@ -4,9 +4,30 @@
 #include <pthread.h>
 #include <functional>
 #include <atomic>
+#include <queue>
+#include "tradecrypto.h"
 
 constexpr const int NUM_CHILD_THREADS = 4;
 typedef std::array<pthread_t*, NUM_CHILD_THREADS> ThreadArray;
+
+struct BrokerData
+{
+    std::queue<Requests> broker;
+    pthread_mutex_t broker_mutex;
+    pthread_cond_t broker_monitor;
+};
+
+struct ProducerData
+{
+    BrokerData& brokerData;
+    const Requests request_type;
+};
+
+struct ConsumerData
+{
+    BrokerData& brokerData;
+    const Requests request_type;
+};
 
 namespace Threading
 {
@@ -27,3 +48,10 @@ namespace ParentThread
 }
 
 #endif
+
+/*  ConsumerData(std::queue<Requests> broker, pthread_mutex_t mutex, pthread_cond_t monitor, const Requests request_type)
+     : broker(broker),
+       broker_access(mutex),
+       broker_monitor(monitor),
+       request_type(request_type)
+    {}; */

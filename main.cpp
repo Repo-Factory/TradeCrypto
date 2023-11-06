@@ -21,34 +21,38 @@
 #include "tradecrypto.h"
 #include "threading.h"
 
-struct ProducerData
-{
-
-};
-
-struct ConsumerData
-{
-
-};
-
 int main(int argc, char* argv[])
 {
     const Args args = ArgsHandling::processArgs(argc, argv);    // Handle input
 
     /* ***** INIT SHARED DATA **** */
-    std::queue<int> q;
+    std::queue<Requests> broker;
+    pthread_mutex_t brokerMutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_cond_t brokerMonitor = PTHREAD_COND_INITIALIZER;
+    BrokerData brokerData{broker, brokerMutex, brokerMonitor};
 
     /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
-    const ProducerData producerData   {};
-    const ConsumerData consumerData   {};
+    const ProducerData bitcoinProducer  {brokerData, Requests::Bitcoin};
+    const ProducerData ethereumProducer {brokerData, Requests::Ethereum};
+    const ConsumerData bitcoinConsumer  {brokerData, Requests::Bitcoin};
+    const ConsumerData ethereumConsumer {brokerData, Requests::Ethereum};
 
     /* ***** TIE FUNCTIONS TO EACH THREAD **** */
-    const ThreadData producerThreadData  {&Producer::produce,                 (void*)&producerData};
-    const ThreadData consumerThreadData  {&Consumer::consume,                 (void*)&consumerData};
+    const ThreadData producerThreadData  {&Producer::produce, (void*)&bitcoinProducer};
+    const ThreadData consumerThreadData  {&Consumer::consume, (void*)&ethereumConsumer};
     
-    const ThreadData* threadData[NUM_CHILD_THREADS] = {&producerThreadData, &producerThreadData, &consumerThreadData, &consumerThreadData};
+    const ThreadData* threadData[NUM_CHILD_THREADS] = 
+    {
+        &producerThreadData, 
+        &producerThreadData, 
+        &consumerThreadData, 
+        &consumerThreadData
+    };
 
     /* ***** EXECUTE/MONITOR THREADS **** */
-    const ThreadArray childThreads =        ParentThread::spawnWorkerThreads(threadData, NUM_CHILD_THREADS);
-    return ParentThread::cleanWorkerThreads (childThreads, NUM_CHILD_THREADS);    
+    const ThreadArray childThreads = ParentThread::spawnWorkerThreads(threadData, NUM_CHILD_THREADS);
+    for (const auto& thread : childThreads) {
+        pthread_join(*thread, NULL); // Wait for threads for clean exit
+    }
+    return ParentThread::cleanWorkerThreads(childThreads, NUM_CHILD_THREADS);    
 }

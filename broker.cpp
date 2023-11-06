@@ -8,7 +8,6 @@
 
 #include "broker.h"
 
-constexpr const int MAX_CRYPTO_REQUESTS = 15;
 
 /* The broker can hold up to a maximum of 15 crypto requests in its request queue at
 any given time.

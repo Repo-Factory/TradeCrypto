@@ -78,7 +78,8 @@
         "regex": "cpp",
         "shared_mutex": "cpp",
         "hash_map": "cpp",
-        "hash_set": "cpp"
+        "hash_set": "cpp",
+        "ranges": "cpp"
     },
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/**",
