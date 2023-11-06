@@ -7,8 +7,17 @@
 #include <queue>
 #include "tradecrypto.h"
 
+constexpr const int MAX_CRYPTO_REQUESTS = 15;
+constexpr const int MAX_BITCOIN_REQUESTS = 6;
+
 constexpr const int NUM_CHILD_THREADS = 4;
 typedef std::array<pthread_t*, NUM_CHILD_THREADS> ThreadArray;
+
+struct ThreadData
+{
+    void*(*threadFunction)(void*);
+    void* threadArgs;
+};
 
 struct BrokerData
 {
@@ -39,12 +48,6 @@ namespace Threading
     pthread_t* spawnThread(void*(*function)(void*), void* args);
     void safeAction(pthread_mutex_t* mutex, std::function<void()> action);
 }
-
-struct ThreadData
-{
-    void*(*threadFunction)(void*);
-    void* threadArgs;
-};
 
 namespace ParentThread
 {

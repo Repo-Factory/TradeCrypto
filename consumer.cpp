@@ -7,9 +7,8 @@
  */
 
 #include "consumer.h"
-#include "broker.h"
 #include "tradecrypto.h"
-#include "threading.h"
+#include "parent_thread.h"
 #include <thread>
 #include <chrono>
 

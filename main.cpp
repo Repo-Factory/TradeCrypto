@@ -14,12 +14,11 @@
  * 
  ******************************************************************************/
 #include "args_handling.h"
-#include "broker.h"
 #include "consumer.h"
 #include "producer.h"
 #include "report.h"
 #include "tradecrypto.h"
-#include "threading.h"
+#include "parent_thread.h"
 
 int main(int argc, char* argv[])
 {

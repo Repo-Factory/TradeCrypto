@@ -8,8 +8,8 @@ LDFLAGS=-pthread
 INCLUDE=-I./
 
 # object files
-OBJS = report.o main.o args_handling.o producer.o consumer.o   
-HEADERS = report.h tradecrypto.h args_handling.h producer.h consumer.h 
+OBJS = report.o main.o args_handling.o producer.o consumer.o parent_thread.o
+HEADERS = report.h tradecrypto.h args_handling.h producer.h consumer.h parent_thread.h
 # Program name
 PROGRAM = tradecrypto
 
@@ -38,7 +38,10 @@ producer.o : producer.h producer.cpp
 consumer.o : consumer.h consumer.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) consumer.cpp
 
-main.o : report.cpp args_handling.cpp producer.cpp consumer.cpp main.cpp
+parent_thread.o : parent_thread.h parent_thread.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) parent_thread.cpp
+
+main.o : report.cpp args_handling.cpp producer.cpp consumer.cpp parent_thread.cpp main.cpp 
 	$(CXX) $(CXXFLAGS) $(INCLUDE) main.cpp
 	
 clean :
