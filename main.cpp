@@ -19,8 +19,36 @@
 #include "producer.h"
 #include "report.h"
 #include "tradecrypto.h"
+#include "threading.h"
+
+struct ProducerData
+{
+
+};
+
+struct ConsumerData
+{
+
+};
 
 int main(int argc, char* argv[])
 {
+    const Args args = ArgsHandling::processArgs(argc, argv);    // Handle input
+
+    /* ***** INIT SHARED DATA **** */
+    std::queue<int> q;
+
+    /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
+    const ProducerData producerData   {};
+    const ConsumerData consumerData   {};
+
+    /* ***** TIE FUNCTIONS TO EACH THREAD **** */
+    const ThreadData producerThreadData  {&Producer::produce,                 (void*)&producerData};
+    const ThreadData consumerThreadData  {&Consumer::consume,                 (void*)&consumerData};
     
+    const ThreadData* threadData[NUM_CHILD_THREADS] = {&producerThreadData, &producerThreadData, &consumerThreadData, &consumerThreadData};
+
+    /* ***** EXECUTE/MONITOR THREADS **** */
+    const ThreadArray childThreads =        ParentThread::spawnWorkerThreads(threadData, NUM_CHILD_THREADS);
+    return ParentThread::cleanWorkerThreads (childThreads, NUM_CHILD_THREADS);    
 }

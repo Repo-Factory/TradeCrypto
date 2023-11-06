@@ -9,7 +9,7 @@
 #include "producer.h"
 
 // Does something
-int Producer(int arg)
+void* Producer::produce(void* arg)
 {
     return arg;
 }

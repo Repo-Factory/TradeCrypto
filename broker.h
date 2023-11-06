@@ -1,6 +1,7 @@
 #ifndef BROKER_H
 #define BROKER_H
+#include <queue>
 
-int Broker(int arg);
+void* broker(void* arg);
 
 #endif

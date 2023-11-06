@@ -9,7 +9,7 @@
 #include "consumer.h"
 
 // Does something
-int Consumer(int arg)
+void* Consumer::consume(void* arg)
 {
     return arg;
 }

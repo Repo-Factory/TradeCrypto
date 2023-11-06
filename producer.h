@@ -1,6 +1,9 @@
 #ifndef PRODUCER_H
 #define PRODUCER_H
 
-int Producer(int arg);
+namespace Producer
+{
+    void* produce(void* arg);
+}
 
 #endif
