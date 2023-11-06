@@ -10,6 +10,13 @@
 #include "broker.h"
 #include "tradecrypto.h"
 #include "threading.h"
+#include <thread>
+#include <chrono>
+
+void consumeRequest(const int requestDelay)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(requestDelay));
+}
 
 // Does something
 void* Consumer::consume(void* arg)

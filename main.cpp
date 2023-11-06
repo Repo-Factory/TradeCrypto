@@ -30,12 +30,13 @@ int main(int argc, char* argv[])
     pthread_mutex_t brokerMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t brokerMonitor = PTHREAD_COND_INITIALIZER;
     BrokerData brokerData{broker, brokerMutex, brokerMonitor};
+    int requests_produced = 0;
 
     /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
-    const ProducerData bitcoinProducer  {brokerData, Requests::Bitcoin};
-    const ProducerData ethereumProducer {brokerData, Requests::Ethereum};
-    const ConsumerData bitcoinConsumer  {brokerData, Requests::Bitcoin};
-    const ConsumerData ethereumConsumer {brokerData, Requests::Ethereum};
+    const ProducerData bitcoinProducer  {brokerData, Requests::Bitcoin, requests_produced, args.n_flag, args.b_flag};
+    const ProducerData ethereumProducer {brokerData, Requests::Ethereum, requests_produced, args.n_flag, args.e_flag};
+    const ConsumerData bitcoinConsumer  {brokerData, Requests::Bitcoin, Consumers::BlockchainX, args.x_flag};
+    const ConsumerData ethereumConsumer {brokerData, Requests::Ethereum, Consumers::BlockchainY, args.y_flag};
 
     /* ***** TIE FUNCTIONS TO EACH THREAD **** */
     const ThreadData producerThreadData  {&Producer::produce, (void*)&bitcoinProducer};

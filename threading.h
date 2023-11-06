@@ -21,12 +21,17 @@ struct ProducerData
 {
     BrokerData& brokerData;
     const Requests request_type;
+    int& total_requests;
+    const int max_requests;
+    const int request_delay;
 };
 
 struct ConsumerData
 {
     BrokerData& brokerData;
     const Requests request_type;
+    const Consumers ledger;
+    const int request_delay;
 };
 
 namespace Threading

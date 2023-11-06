@@ -43,9 +43,9 @@ namespace
     /**
      * Use optargs to populate n:f:a:l flags
      */
-    OptionalArgs getOptionalArgs(int argc, char* argv[])
+    Args getOptionalArgs(int argc, char* argv[])
     {
-        OptionalArgs optionalArgs;
+        Args optionalArgs;
         int option_index = 0;
         while ((option_index = getopt(argc, argv, FLAG_OPTIONS)) != OPT_INVALID) 
         {
