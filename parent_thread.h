@@ -9,8 +9,8 @@
 
 constexpr const int MAX_CRYPTO_REQUESTS = 15;
 constexpr const int MAX_BITCOIN_REQUESTS = 6;
-
 constexpr const int NUM_CHILD_THREADS = 4;
+
 typedef std::array<pthread_t*, NUM_CHILD_THREADS> ThreadArray;
 
 struct ThreadData

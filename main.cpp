@@ -38,15 +38,17 @@ int main(int argc, char* argv[])
     const ConsumerData ethereumConsumer {brokerData, Requests::Ethereum, Consumers::BlockchainY, args.y_flag};
 
     /* ***** TIE FUNCTIONS TO EACH THREAD **** */
-    const ThreadData producerThreadData  {&Producer::produce, (void*)&bitcoinProducer};
-    const ThreadData consumerThreadData  {&Consumer::consume, (void*)&ethereumConsumer};
+    const ThreadData bitcoinProducerThread  {&Producer::produce, (void*)&bitcoinProducer};
+    const ThreadData ethereumProducerThread {&Producer::produce, (void*)&ethereumProducer};
+    const ThreadData bitcoinConsumerThread  {&Consumer::consume, (void*)&bitcoinConsumer};
+    const ThreadData ethereumConsumerThread {&Consumer::consume, (void*)&ethereumConsumer};
     
     const ThreadData* threadData[NUM_CHILD_THREADS] = 
     {
-        &producerThreadData, 
-        &producerThreadData, 
-        &consumerThreadData, 
-        &consumerThreadData
+        &bitcoinProducerThread, 
+        &ethereumProducerThread, 
+        &bitcoinConsumerThread, 
+        &ethereumConsumerThread
     };
 
     /* ***** EXECUTE/MONITOR THREADS **** */
