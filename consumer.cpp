@@ -13,16 +13,6 @@
 #include <thread>
 #include <chrono>
 
-unsigned int* getQueueData(std::queue<Requests> q)
-{
-    const size_t queueSize = q.size();
-    unsigned int* dataArray = new unsigned int[queueSize];
-    for (size_t i = 0; i < queueSize; i++) {
-        dataArray[i] = q.front(); q.pop();
-    }
-    return dataArray;
-}
-
 void consumeRequest(ConsumerData* consumerData)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(consumerData->request_delay));

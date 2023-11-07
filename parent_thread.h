@@ -28,7 +28,7 @@ struct BrokerData
 struct ProducerData
 {
     BrokerData& broker_data;
-    pthread_cond_t broker_monitor;
+    pthread_cond_t& broker_monitor;
     unsigned int* requests_produced;
     unsigned int& total_requests;
     const Requests request_type;
@@ -39,7 +39,7 @@ struct ProducerData
 struct ConsumerData
 {
     BrokerData& broker_data;
-    pthread_cond_t broker_monitor;
+    pthread_cond_t& broker_monitor;
     unsigned int** requests_consumed;
     const Requests request_type;
     const Consumers ledger;
@@ -58,11 +58,6 @@ namespace ParentThread
     int cleanWorkerThreads(const ThreadArray& threads, const int numThreads);
 }
 
-#endif
+unsigned int* getQueueData(std::queue<Requests> q);
 
-/*  ConsumerData(std::queue<Requests> broker, pthread_mutex_t mutex, pthread_cond_t monitor, const Requests request_type)
-     : broker(broker),
-       broker_access(mutex),
-       broker_monitor(monitor),
-       request_type(request_type)
-    {}; */
+#endif

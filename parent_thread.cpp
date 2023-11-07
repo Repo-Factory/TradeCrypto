@@ -49,3 +49,13 @@ pthread_t* Threading::spawnThread(void*(*function)(void*), void* args)
     pthread_create(thread, NULL, function, args);
     return thread;
 }
+
+unsigned int* getQueueData(std::queue<Requests> q)
+{
+    const size_t queueSize = q.size();
+    unsigned int* dataArray = new unsigned int[queueSize];
+    for (size_t i = 0; i < queueSize; i++) {
+        dataArray[i] = q.front(); q.pop();
+    }
+    return dataArray;
+}

@@ -1,11 +1,9 @@
 /* 
  * @brief Class Handles Command line argument parsing and validation
  *
- * Args object made of optional and mandatory args structs
  * Struct will lay out default values for flags if none are passed in
  * Getopt will be used to parse optional arguments if given
  * Appropriate error messages will be displayed for incorrect usages
- * Program mandates two arguments for the file inputs
  * See macros for more usage details
  * 
  */
