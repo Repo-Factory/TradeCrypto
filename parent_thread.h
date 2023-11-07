@@ -19,15 +19,10 @@ struct ThreadData
     void* threadArgs;
 };
 
-struct BrokerData
+struct Producer
 {
-    std::queue<Requests> broker;
-    pthread_mutex_t broker_mutex;
-};
-
-struct ProducerData
-{
-    BrokerData& broker_data;
+    std::queue<Requests>& broker;
+    pthread_mutex_t& broker_mutex;
     pthread_cond_t& broker_monitor;
     unsigned int* requests_produced;
     unsigned int& total_requests;
@@ -36,9 +31,10 @@ struct ProducerData
     const int request_delay;
 };
 
-struct ConsumerData
+struct Consumer
 {
-    BrokerData& broker_data;
+    std::queue<Requests>& broker;
+    pthread_mutex_t& broker_mutex;
     pthread_cond_t& broker_monitor;
     unsigned int** requests_consumed;
     const Requests request_type;

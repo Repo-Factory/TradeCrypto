@@ -1,7 +1,7 @@
 #ifndef CONSUMER_H
 #define CONSUMER_H
 
-namespace Consumer
+namespace ConsumerThread
 {
     void* consume(void* arg);
 }
