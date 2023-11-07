@@ -23,21 +23,24 @@ struct BrokerData
 {
     std::queue<Requests> broker;
     pthread_mutex_t broker_mutex;
-    pthread_cond_t broker_monitor;
 };
 
 struct ProducerData
 {
-    BrokerData& brokerData;
+    BrokerData& broker_data;
+    pthread_cond_t broker_monitor;
+    unsigned int* requests_produced;
+    unsigned int& total_requests;
     const Requests request_type;
-    int& total_requests;
     const int max_requests;
     const int request_delay;
 };
 
 struct ConsumerData
 {
-    BrokerData& brokerData;
+    BrokerData& broker_data;
+    pthread_cond_t broker_monitor;
+    unsigned int** requests_consumed;
     const Requests request_type;
     const Consumers ledger;
     const int request_delay;
