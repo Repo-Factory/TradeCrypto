@@ -18,7 +18,6 @@
 #include "report.h"
 #include "tradecrypto.h"
 #include "parent_thread.h"
-#include "semaphore.h"
 
 constexpr const int INIT_INT = 0;
 
@@ -37,12 +36,14 @@ int main(int argc, char* argv[])
     requestsConsumed[Requests::Bitcoin]                          = new unsigned int [ConsumerTypeN];
     requestsConsumed[Requests::Ethereum]                         = new unsigned int [ConsumerTypeN];
     unsigned int requestsTracker                                 = INIT_INT;
+    sem_t                                                        barrier;
+    sem_init                                                     (&barrier, 0, 0);
 
     /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
     const Producer bitcoinProducer  {broker, bitcoinMutex, bitcoinMonitor, requestsProduced, requestsTracker, Requests::Bitcoin, args.n_flag, args.b_flag};
     const Producer ethereumProducer {broker, ethereumMutex, ethereumMonitor, requestsProduced, requestsTracker, Requests::Ethereum, args.n_flag, args.e_flag};
-    const Consumer bitcoinConsumer  {broker, bitcoinMutex, bitcoinMonitor, requestsConsumed, Requests::Bitcoin, Consumers::BlockchainX, args.x_flag};
-    const Consumer ethereumConsumer {broker, ethereumMutex, ethereumMonitor, requestsConsumed, Requests::Ethereum, Consumers::BlockchainY, args.y_flag};
+    const Consumer bitcoinConsumer  {broker, bitcoinMutex, bitcoinMonitor, barrier, requestsConsumed, Requests::Bitcoin, Consumers::BlockchainX, args.n_flag, args.x_flag};
+    const Consumer ethereumConsumer {broker, ethereumMutex, ethereumMonitor, barrier, requestsConsumed, Requests::Ethereum, Consumers::BlockchainY, args.n_flag, args.y_flag};
 
     /* ***** TIE FUNCTIONS TO EACH THREAD **** */
     const ThreadContext bitcoinProducerThread  {&ProducerThread::produce, (void*)&bitcoinProducer};
@@ -60,9 +61,8 @@ int main(int argc, char* argv[])
 
     /* ***** EXECUTE/MONITOR THREADS **** */
     const ThreadArray childThreads = ParentThread::spawnWorkerThreads(threadData, NUM_CHILD_THREADS);
-    for (const auto& thread : childThreads) {
-        pthread_join(*thread, NULL); // Wait for threads for clean exit
-    }
+    sem_wait(&barrier);
+
     report_production_history(requestsProduced, requestsConsumed);
     return ParentThread::cleanWorkerThreads(childThreads, NUM_CHILD_THREADS);    
 }

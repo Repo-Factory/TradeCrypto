@@ -5,6 +5,7 @@
 #include <functional>
 #include <atomic>
 #include <queue>
+#include "semaphore.h"
 #include "tradecrypto.h"
 
 constexpr const int MAX_CRYPTO_REQUESTS = 15;
@@ -36,9 +37,11 @@ struct Consumer
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
     pthread_cond_t& broker_monitor;
+    sem_t& barrier;
     unsigned int** requests_consumed;
     const Requests request_type;
     const Consumers ledger;
+    const int max_requests;
     const int request_delay;
 };
 

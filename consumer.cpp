@@ -22,6 +22,10 @@ void consumeRequest(Consumer* consumer_context)
     });
     consumer_context->requests_consumed[consumer_context->request_type][consumer_context->ledger]++;
     report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], getQueueData(consumer_context->broker));
+    if (consumer_context->requests_consumed[0][0] + consumer_context->requests_consumed[0][1] + consumer_context->requests_consumed[1][0] + consumer_context->requests_consumed[1][1] == 250)
+    {
+        sem_post(&consumer_context->barrier);
+    }
 }
 
 // Does something
@@ -31,7 +35,8 @@ void* ConsumerThread::consume(void* arg)
     while (1) // TODO: Add Barrier to signal quit
     {
         if (consumer_context->broker.empty())
-        {   Threading::safeAction(&consumer_context->broker_mutex, [&](){
+        {   
+            Threading::safeAction(&consumer_context->broker_mutex, [&](){
                 pthread_cond_wait(&consumer_context->broker_monitor, &consumer_context->broker_mutex);
             });
         }
