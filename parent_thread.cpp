@@ -13,7 +13,7 @@
 #include <thread>
 #include <chrono>
 
-ThreadArray ParentThread::spawnWorkerThreads(const ThreadData* threadData[], const int numThreads)
+ThreadArray ParentThread::spawnWorkerThreads(const ThreadContext* threadData[], const int numThreads)
 {
     ThreadArray threads;
     for (int i = 0; i < numThreads; i++)

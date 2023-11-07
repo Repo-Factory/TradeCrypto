@@ -13,31 +13,33 @@
 #include <thread>
 #include <chrono>
 
-void produceRequest(Producer* producerData)
+void produceRequest(Producer* producer_context)
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(producerData->request_delay));
-    Threading::safeAction(&producerData->broker_mutex, [&](){
-        producerData->broker.push(producerData->request_type);
+    std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
+    Threading::safeAction(&producer_context->broker_mutex, [&](){
+        producer_context->broker.push(producer_context->request_type);
+        pthread_cond_signal(&producer_context->broker_monitor);
     });
-    producerData->total_requests++;
-    producerData->requests_produced[producerData->request_type]++;
-    pthread_cond_signal(&producerData->broker_monitor);
-    report_request_added(producerData->request_type, producerData->requests_produced, getQueueData(producerData->broker));
+    producer_context->total_requests++;
+    producer_context->requests_produced[producer_context->request_type]++;
+    report_request_added(producer_context->request_type, producer_context->requests_produced, getQueueData(producer_context->broker));
 }
 
 // Does something
 void* ProducerThread::produce(void* arg)
 {
-    auto producerData = (Producer*)arg;
-    while (producerData->total_requests < producerData->max_requests)
+    auto producer_context = (Producer*)arg;
+    while (producer_context->total_requests < producer_context->max_requests)
     {
-        if (producerData->broker.size() > MAX_CRYPTO_REQUESTS)
+        if (producer_context->broker.size() > MAX_CRYPTO_REQUESTS)
         {
-            pthread_cond_wait(&producerData->broker_monitor, &producerData->broker_mutex);
+            Threading::safeAction(&producer_context->broker_mutex, [&](){
+                pthread_cond_wait(&producer_context->broker_monitor, &producer_context->broker_mutex);
+            });
         }
         else
         {
-            produceRequest(producerData);
+            produceRequest(producer_context);
         }
     }
     return NULL;

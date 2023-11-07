@@ -1,0 +1,4 @@
+/* sem_t barrier;
+    sem_init(&barrier, NULL, NULL);
+    sem_wait(&barrier);
+    sem_post(&barrier);  */

@@ -13,7 +13,7 @@ constexpr const int NUM_CHILD_THREADS = 4;
 
 typedef std::array<pthread_t*, NUM_CHILD_THREADS> ThreadArray;
 
-struct ThreadData
+struct ThreadContext
 {
     void*(*threadFunction)(void*);
     void* threadArgs;
@@ -50,7 +50,7 @@ namespace Threading
 
 namespace ParentThread
 {
-    ThreadArray spawnWorkerThreads(const ThreadData* threadData[], const int numThreads);
+    ThreadArray spawnWorkerThreads(const ThreadContext* threadData[], const int numThreads);
     int cleanWorkerThreads(const ThreadArray& threads, const int numThreads);
 }
 

@@ -13,30 +13,31 @@
 #include <thread>
 #include <chrono>
 
-void consumeRequest(Consumer* consumerData)
+void consumeRequest(Consumer* consumer_context)
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(consumerData->request_delay));
-    Threading::safeAction(&consumerData->broker_mutex, [&](){
-        consumerData->broker.pop();
+    std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
+    Threading::safeAction(&consumer_context->broker_mutex, [&](){
+        consumer_context->broker.pop();
+        pthread_cond_signal(&consumer_context->broker_monitor);
     });
-    consumerData->requests_consumed[consumerData->request_type][consumerData->ledger]++;
-    pthread_cond_signal(&consumerData->broker_monitor);
-    report_request_removed(consumerData->ledger, consumerData->request_type, consumerData->requests_consumed[consumerData->ledger], getQueueData(consumerData->broker));
+    consumer_context->requests_consumed[consumer_context->request_type][consumer_context->ledger]++;
+    report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], getQueueData(consumer_context->broker));
 }
 
 // Does something
 void* ConsumerThread::consume(void* arg)
 {
-    auto consumerData = (Consumer*)arg;
+    auto consumer_context = (Consumer*)arg;
     while (1) // TODO: Add Barrier to signal quit
     {
-        if (consumerData->broker.empty())
-        {
-            pthread_cond_wait(&consumerData->broker_monitor, &consumerData->broker_mutex);
+        if (consumer_context->broker.empty())
+        {   Threading::safeAction(&consumer_context->broker_mutex, [&](){
+                pthread_cond_wait(&consumer_context->broker_monitor, &consumer_context->broker_mutex);
+            });
         }
         else
         {
-            consumeRequest(consumerData);
+            consumeRequest(consumer_context);
         }
     }                               
 }
