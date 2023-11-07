@@ -26,7 +26,7 @@ void consumeRequest(Consumer* consumer_context)
         pthread_cond_signal(&consumer_context->broker_monitor);
     });
     consumer_context->requests_consumed[consumer_context->request_type][consumer_context->ledger]++;
-    report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], getQueueData(consumer_context->broker));
+    report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker));
     if (getTotalRequestsConsumed(consumer_context->requests_consumed) == consumer_context->max_requests)
     {
         sem_post(&consumer_context->barrier);                               // End Program

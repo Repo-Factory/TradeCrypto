@@ -36,7 +36,7 @@ int ParentThread::cleanWorkerThreads(const ThreadArray& threads, const int numTh
     return EXIT_SUCCESS;
 }
 
-void Threading::safeAction(pthread_mutex_t* mutex, std::function<void()> performAction) 
+void Threading::safeAction(pthread_mutex_t* mutex, const std::function<void()> performAction) 
 {
     pthread_mutex_lock(mutex);
     performAction();
@@ -50,7 +50,7 @@ pthread_t* Threading::spawnThread(void*(*function)(void*), void* args)
     return thread;
 }
 
-unsigned int* getQueueData(std::queue<Requests> q)
+unsigned int* SharedData::getQueueData(std::queue<Requests> q)
 {
     const size_t queueSize = q.size();
     unsigned int* dataArray = new unsigned int[queueSize];

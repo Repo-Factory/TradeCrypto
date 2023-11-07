@@ -22,7 +22,7 @@ void produceRequest(Producer* producer_context)
     });
     producer_context->total_requests++;
     producer_context->requests_produced[producer_context->request_type]++;
-    report_request_added(producer_context->request_type, producer_context->requests_produced, getQueueData(producer_context->broker));
+    report_request_added(producer_context->request_type, producer_context->requests_produced, SharedData::getQueueData(producer_context->broker));
 }
 
 // Does something

@@ -12,14 +12,14 @@
  * See cpp file of each for more details in each respective area
  * 
  ******************************************************************************/
+
 #include "args_handling.h"
 #include "consumer.h"
 #include "producer.h"
 #include "report.h"
 #include "tradecrypto.h"
 #include "parent_thread.h"
-
-constexpr const int INIT_INT = 0;
+#include <stdio.h>
 
 int main(int argc, char* argv[])
 {
@@ -62,7 +62,6 @@ int main(int argc, char* argv[])
     /* ***** EXECUTE/MONITOR THREADS **** */
     const ThreadArray childThreads = ParentThread::spawnWorkerThreads(threadData, NUM_CHILD_THREADS);
     sem_wait(&barrier);
-
     report_production_history(requestsProduced, requestsConsumed);
     return ParentThread::cleanWorkerThreads(childThreads, NUM_CHILD_THREADS);    
 }

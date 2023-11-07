@@ -11,6 +11,7 @@
 constexpr const int MAX_CRYPTO_REQUESTS = 15;
 constexpr const int MAX_BITCOIN_REQUESTS = 6;
 constexpr const int NUM_CHILD_THREADS = 4;
+constexpr const int INIT_INT = 0;
 
 typedef std::array<pthread_t*, NUM_CHILD_THREADS> ThreadArray;
 
@@ -48,7 +49,7 @@ struct Consumer
 namespace Threading
 {
     pthread_t* spawnThread(void*(*function)(void*), void* args);
-    void safeAction(pthread_mutex_t* mutex, std::function<void()> action);
+    void safeAction(pthread_mutex_t* mutex, const std::function<void()> action);
 }
 
 namespace ParentThread
@@ -57,6 +58,9 @@ namespace ParentThread
     int cleanWorkerThreads(const ThreadArray& threads, const int numThreads);
 }
 
-unsigned int* getQueueData(std::queue<Requests> q);
+namespace SharedData
+{
+    unsigned int* getQueueData(std::queue<Requests> q);
+}
 
 #endif
