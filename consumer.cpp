@@ -13,6 +13,11 @@
 #include <thread>
 #include <chrono>
 
+const int getTotalRequestsConsumed(unsigned int** requests_consumed)
+{
+    return requests_consumed[0][0] + requests_consumed[0][1] + requests_consumed[1][0] + requests_consumed[1][1];
+}
+
 void consumeRequest(Consumer* consumer_context)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
@@ -22,9 +27,9 @@ void consumeRequest(Consumer* consumer_context)
     });
     consumer_context->requests_consumed[consumer_context->request_type][consumer_context->ledger]++;
     report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], getQueueData(consumer_context->broker));
-    if (consumer_context->requests_consumed[0][0] + consumer_context->requests_consumed[0][1] + consumer_context->requests_consumed[1][0] + consumer_context->requests_consumed[1][1] == 250)
+    if (getTotalRequestsConsumed(consumer_context->requests_consumed) == consumer_context->max_requests)
     {
-        sem_post(&consumer_context->barrier);
+        sem_post(&consumer_context->barrier);                               // End Program
     }
 }
 
