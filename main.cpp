@@ -27,6 +27,7 @@ int main(int argc, char* argv[])
 
     /* ***** INIT SHARED DATA **** */
     std::queue<Requests>                                         broker;
+    pthread_mutex_t brokerMutex                                  = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t bitcoinMutex                                 = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t ethereumMutex                                = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t bitcoinMonitor                                = PTHREAD_COND_INITIALIZER;
@@ -40,10 +41,10 @@ int main(int argc, char* argv[])
     sem_init                                                     (&barrier, 0, 0);
 
     /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
-    const Producer bitcoinProducer  {broker, bitcoinMutex, bitcoinMonitor, requestsProduced, requestsTracker, Requests::Bitcoin, args.n_flag, args.b_flag};
-    const Producer ethereumProducer {broker, ethereumMutex, ethereumMonitor, requestsProduced, requestsTracker, Requests::Ethereum, args.n_flag, args.e_flag};
-    const Consumer bitcoinConsumer  {broker, bitcoinMutex, bitcoinMonitor, barrier, requestsConsumed, Requests::Bitcoin, Consumers::BlockchainX, args.n_flag, args.x_flag};
-    const Consumer ethereumConsumer {broker, ethereumMutex, ethereumMonitor, barrier, requestsConsumed, Requests::Ethereum, Consumers::BlockchainY, args.n_flag, args.y_flag};
+    const Producer bitcoinProducer  {broker, brokerMutex, bitcoinMutex, bitcoinMonitor, requestsProduced, requestsTracker, Requests::Bitcoin, args.n_flag, args.b_flag};
+    const Producer ethereumProducer {broker, brokerMutex, ethereumMutex, ethereumMonitor, requestsProduced, requestsTracker, Requests::Ethereum, args.n_flag, args.e_flag};
+    const Consumer bitcoinConsumer  {broker, brokerMutex, bitcoinMutex, bitcoinMonitor, barrier, requestsConsumed, Requests::Bitcoin, Consumers::BlockchainX, args.n_flag, args.x_flag};
+    const Consumer ethereumConsumer {broker, brokerMutex, ethereumMutex, ethereumMonitor, barrier, requestsConsumed, Requests::Ethereum, Consumers::BlockchainY, args.n_flag, args.y_flag};
 
     /* ***** TIE FUNCTIONS TO EACH THREAD **** */
     const ThreadContext bitcoinProducerThread  {&ProducerThread::produce, (void*)&bitcoinProducer};

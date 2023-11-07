@@ -25,6 +25,7 @@ struct Producer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
+    pthread_mutex_t& monitor_mutex;
     pthread_cond_t& broker_monitor;
     unsigned int* requests_produced;
     unsigned int& total_requests;
@@ -37,6 +38,7 @@ struct Consumer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
+    pthread_mutex_t& monitor_mutex;
     pthread_cond_t& broker_monitor;
     sem_t& barrier;
     unsigned int** requests_consumed;
