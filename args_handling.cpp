@@ -56,10 +56,10 @@ namespace
                     optionalArgs.x_flag = std::stoi(optarg);
                     break;
                 case Y_FLAG_IDENTIFER:
-                    optionalArgs.b_flag = std::stoi(optarg);
+                    optionalArgs.y_flag = std::stoi(optarg);
                     break;
                 case B_FLAG_IDENTIFER:
-                    optionalArgs.y_flag = std::stoi(optarg);
+                    optionalArgs.b_flag = std::stoi(optarg);
                     break;
                 case E_FLAG_IDENTIFER:
                     optionalArgs.e_flag = std::stoi(optarg);

@@ -20,17 +20,14 @@ const int getTotalRequestsConsumed(unsigned int** requests_consumed)
 
 const bool consumeRequest(Consumer* consumer_context)
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
     Threading::safeAction(&consumer_context->broker_mutex, [&](){
-        if (consumer_context->broker.empty()) 
-        {
-            const RequestType type = consumer_context->broker.front();
-            consumer_context->broker.pop();
-            pthread_cond_signal(&consumer_context->broker_monitor);
-            consumer_context->requests_consumed[consumer_context->ledger][type]++;
-            report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker));
-        }
+        const RequestType type = consumer_context->broker.front();
+        consumer_context->broker.pop();
+        consumer_context->requests_consumed[consumer_context->ledger][type]++;
     });
+    std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
+    pthread_cond_signal(&consumer_context->broker_monitor);
+    report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker));
     return getTotalRequestsConsumed(consumer_context->requests_consumed) == consumer_context->max_requests;
 }
 
