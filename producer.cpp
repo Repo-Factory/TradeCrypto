@@ -14,7 +14,7 @@
 #include <chrono>
 
 const bool STILL_REQUESTS(Producer* producer_context)   {return producer_context->total_requests < producer_context->max_requests;}
-const bool BROKER_FULL(Producer* producer_context)      {return producer_context->broker.size() > MAX_CRYPTO_REQUESTS;}
+const bool BROKER_FULL(Producer* producer_context)      {return producer_context->broker.size() >= MAX_CRYPTO_REQUESTS;}
 
 void produceRequest(Producer* producer_context)
 {
