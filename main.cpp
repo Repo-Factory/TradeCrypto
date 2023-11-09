@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
     const ThreadContext ethereumProducerThread {&ProducerThread::produce, (void*)&ethereumProducer};
     const ThreadContext bitcoinConsumerThread  {&ConsumerThread::consume, (void*)&bitcoinConsumer};
     const ThreadContext ethereumConsumerThread {&ConsumerThread::consume, (void*)&ethereumConsumer};
-    
+
     const ThreadContext* threadData[NUM_CHILD_THREADS] = 
     {
         &bitcoinProducerThread, 

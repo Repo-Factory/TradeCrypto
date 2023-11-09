@@ -22,7 +22,7 @@ const bool consumeRequest(Consumer* consumer_context)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
     Threading::safeAction(&consumer_context->broker_mutex, [&](){
-        consumer_context->broker.pop();
+        if (consumer_context->broker.empty()) consumer_context->broker.pop();
     });
     pthread_cond_signal(&consumer_context->broker_monitor);
     consumer_context->requests_consumed[consumer_context->request_type][consumer_context->ledger]++;

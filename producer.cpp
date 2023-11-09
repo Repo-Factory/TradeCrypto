@@ -13,6 +13,9 @@
 #include <thread>
 #include <chrono>
 
+const bool STILL_REQUESTS(Producer* producer_context)   {return producer_context->total_requests < producer_context->max_requests;}
+const bool BROKER_FULL(Producer* producer_context)      {return producer_context->broker.size() > MAX_CRYPTO_REQUESTS;}
+
 void produceRequest(Producer* producer_context)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
@@ -24,9 +27,6 @@ void produceRequest(Producer* producer_context)
     producer_context->requests_produced[producer_context->request_type]++;
     report_request_added(producer_context->request_type, producer_context->requests_produced, SharedData::getQueueData(producer_context->broker));
 }
-
-const bool STILL_REQUESTS(Producer* producer_context)   {return producer_context->total_requests < producer_context->max_requests;}
-const bool BROKER_FULL(Producer* producer_context)      {return producer_context->broker.size() > MAX_CRYPTO_REQUESTS;}
 
 void* ProducerThread::produce(void* arg)
 {
