@@ -18,7 +18,6 @@ const bool BROKER_FULL(Producer* producer_context)      {return producer_context
 
 void produceRequest(Producer* producer_context)
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
     Threading::safeAction(&producer_context->broker_mutex, [&](){
         producer_context->broker.push(producer_context->request_type);
     });
@@ -26,6 +25,7 @@ void produceRequest(Producer* producer_context)
     producer_context->total_requests++;
     producer_context->requests_produced[producer_context->request_type]++;
     report_request_added(producer_context->request_type, producer_context->requests_produced, SharedData::getQueueData(producer_context->broker));
+    std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
 }
 
 void* ProducerThread::produce(void* arg)
@@ -37,7 +37,8 @@ void* ProducerThread::produce(void* arg)
             Threading::safeAction(&producer_context->monitor_mutex, [&](){
                 pthread_cond_wait(&producer_context->broker_monitor, &producer_context->monitor_mutex);
             });
-        } else {
+        } 
+        else {
             produceRequest(producer_context);
         }
     }

@@ -20,14 +20,14 @@ const int getTotalRequestsConsumed(unsigned int** requests_consumed)
 
 const bool consumeRequest(Consumer* consumer_context)
 {
+    const RequestType type = consumer_context->broker.front();
     Threading::safeAction(&consumer_context->broker_mutex, [&](){
-        const RequestType type = consumer_context->broker.front();
         consumer_context->broker.pop();
-        consumer_context->requests_consumed[consumer_context->ledger][type]++;
     });
-    std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
+    consumer_context->requests_consumed[consumer_context->ledger][type]++;
     pthread_cond_signal(&consumer_context->broker_monitor);
-    report_request_removed(consumer_context->ledger, consumer_context->request_type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker));
+    report_request_removed(consumer_context->ledger, type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker));
+    std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
     return getTotalRequestsConsumed(consumer_context->requests_consumed) == consumer_context->max_requests;
 }
 
@@ -35,15 +35,14 @@ const bool consumeRequest(Consumer* consumer_context)
 void* ConsumerThread::consume(void* arg)
 {
     auto consumer_context = (Consumer*)arg;
-    bool barrier_triggered = false;
-    while (!barrier_triggered)
+    while (!consumer_context->barrier_triggered)
     {
         if (consumer_context->broker.empty()) {   
             Threading::safeAction(&consumer_context->monitor_mutex, [&](){
                 pthread_cond_wait(&consumer_context->broker_monitor, &consumer_context->monitor_mutex);
             });
         } else {
-            barrier_triggered = consumeRequest(consumer_context);
+            consumer_context->barrier_triggered = consumeRequest(consumer_context);
         }
     }
     sem_post(&consumer_context->barrier);

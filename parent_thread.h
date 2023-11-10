@@ -42,10 +42,10 @@ struct Consumer
     pthread_cond_t& broker_monitor;
     sem_t& barrier;
     unsigned int** requests_consumed;
-    const Requests request_type;
     const Consumers ledger;
     const int max_requests;
     const int request_delay;
+    bool& barrier_triggered;
 };
 
 namespace Threading
