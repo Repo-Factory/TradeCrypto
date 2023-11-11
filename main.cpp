@@ -42,36 +42,6 @@ int main(int argc, char* argv[])
     sem_init                                                     (&barrier, 0, 0);
     bool                                                         barrier_triggered;
 
-/* struct Producer
-{
-    std::queue<Requests>& broker;
-    pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& general_mutex;
-    pthread_mutex_t& bitcoin_mutex;
-    pthread_cond_t& general_monitor;
-    pthread_cond_t& bitcoin_monitor;
-    unsigned int* requests_produced;
-    unsigned int& total_requests;
-    const Requests request_type;
-    const int max_requests;
-    const int request_delay;
-};
-
-struct Consumer
-{
-    std::queue<Requests>& broker;
-    pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& general_mutex;
-    pthread_mutex_t& bitcoin_mutex;
-    pthread_cond_t& general_monitor;
-    pthread_cond_t& bitcoin_monitor;
-    sem_t& barrier;
-    unsigned int** requests_consumed;
-    const Consumers ledger;
-    const int max_requests;
-    const int request_delay;
-    bool& barrier_triggered; */
-
     /* ***** DIRECT NEEDED SHARED DATA TO EACH THREAD **** */
     const Producer bitcoinProducer  {broker, brokerMutex, generalMutex, bitcoinMutex, generalMonitor, bitcoinMonitor, requestsProduced, requestsTracker, Requests::Bitcoin, args.n_flag, args.b_flag};
     const Producer ethereumProducer {broker, brokerMutex, generalMutex, bitcoinMutex, generalMonitor, bitcoinMonitor, requestsProduced, requestsTracker, Requests::Ethereum, args.n_flag, args.e_flag};
