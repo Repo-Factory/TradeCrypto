@@ -25,8 +25,10 @@ struct Producer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& monitor_mutex;
-    pthread_cond_t& broker_monitor;
+    pthread_mutex_t& general_mutex;
+    pthread_mutex_t& bitcoin_mutex;
+    pthread_cond_t& general_monitor;
+    pthread_cond_t& bitcoin_monitor;
     unsigned int* requests_produced;
     unsigned int& total_requests;
     const Requests request_type;
@@ -38,8 +40,10 @@ struct Consumer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& monitor_mutex;
-    pthread_cond_t& broker_monitor;
+    pthread_mutex_t& general_mutex;
+    pthread_mutex_t& bitcoin_mutex;
+    pthread_cond_t& general_monitor;
+    pthread_cond_t& bitcoin_monitor;
     sem_t& barrier;
     unsigned int** requests_consumed;
     const Consumers ledger;
@@ -62,7 +66,7 @@ namespace ParentThread
 
 namespace SharedData
 {
-    unsigned int* getQueueData(std::queue<Requests> q);
+    std::vector<unsigned int> getQueueData(std::queue<Requests> q);
 }
 
 #endif

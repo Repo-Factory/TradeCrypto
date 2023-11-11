@@ -50,10 +50,10 @@ pthread_t* Threading::spawnThread(void*(*function)(void*), void* args)
     return thread;
 }
 
-unsigned int* SharedData::getQueueData(std::queue<Requests> q)
+std::vector<unsigned int> SharedData::getQueueData(std::queue<Requests> q)
 {
     const size_t queueSize = q.size();
-    unsigned int* dataArray = new unsigned int[RequestTypeN];
+    std::vector<unsigned int> dataArray(RequestTypeN);
     for (size_t i = 0; i < queueSize; i++) {
         const RequestType requestType = q.front(); q.pop();
         dataArray[requestType]++;
