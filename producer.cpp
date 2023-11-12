@@ -31,6 +31,7 @@ const bool BITCOIN_FULL(Producer* producer_context)
 
 void produceRequest(Producer* producer_context)
 {
+    if (!STILL_REQUESTS(producer_context)) return;
     producer_context->broker.push(producer_context->request_type);
     producer_context->total_requests++;
     producer_context->requests_produced[producer_context->request_type]++;
