@@ -55,7 +55,6 @@ struct Consumer
 namespace Threading
 {
     pthread_t* spawnThread(void*(*function)(void*), void* args);
-    void safeAction(pthread_mutex_t* mutex, const std::function<void()> action);
 }
 
 namespace ParentThread

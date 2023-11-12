@@ -1,9 +1,7 @@
 /* 
- * @brief 
+ * @brief Facilitate multi-threaded functionality 
  *
- * 
- * 
- * 
+ * Define some threading helper functions and child argument data structures in header.
  */
 
 #include "parent_thread.h"
@@ -13,6 +11,7 @@
 #include <thread>
 #include <chrono>
 
+// Helper to create all threads at the same time
 ThreadArray ParentThread::spawnWorkerThreads(const ThreadContext* threadData[], const int numThreads)
 {
     ThreadArray threads;
@@ -27,6 +26,7 @@ ThreadArray ParentThread::spawnWorkerThreads(const ThreadContext* threadData[], 
     return threads;
 }
 
+// Delete thread memory at end of program
 int ParentThread::cleanWorkerThreads(const ThreadArray& threads, const int numThreads)
 {
     for (int i = 0; i < numThreads; i++)
@@ -36,13 +36,6 @@ int ParentThread::cleanWorkerThreads(const ThreadArray& threads, const int numTh
     return EXIT_SUCCESS;
 }
 
-void Threading::safeAction(pthread_mutex_t* mutex, const std::function<void()> performAction) 
-{
-    pthread_mutex_lock(mutex);
-    performAction();
-    pthread_mutex_unlock(mutex);
-}
-
 pthread_t* Threading::spawnThread(void*(*function)(void*), void* args)
 {
     pthread_t* thread = new pthread_t;
@@ -50,6 +43,7 @@ pthread_t* Threading::spawnThread(void*(*function)(void*), void* args)
     return thread;
 }
 
+// This will organize queue data based on request type to pass to reporting functions.
 std::vector<unsigned int> SharedData::getQueueData(std::queue<Requests> q)
 {
     const size_t queueSize = q.size();

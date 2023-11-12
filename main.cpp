@@ -2,13 +2,20 @@
  * @author Conner Sommerfield 824769654
  * @name tradecrypto
  * 
- * @brief 
+ * @brief Multi-thread program showing producer and consumer functionality using cryptocurrency requests.
  * 
- * @description 
+ * @description This program has four threads, two producers and two consumers.
+ * One producer is for bitcoin coins and the other is for ethereum coins. The user can use 
+ * terminal arguments to control request speeds and their consumption
  * 
- * Consumner
- * Producer
- * Broker
+ * Components
+ * -----------
+ * Parent Thread - Define the structures of data that we are going to pass to the child threads. 
+ *               - We will also define the functions to start the producer and consumer threads
+ *               - Look into header file for details on the structures passed to children threads.
+ * Producer - Define thread function that will add requests to the queue according to the size limits
+ * Consumer - Define thread function that will remove requests from the queue when available
+ * 
  * See cpp file of each for more details in each respective area
  * 
  ******************************************************************************/
@@ -54,6 +61,7 @@ int main(int argc, char* argv[])
     const ThreadContext xConsumerThread        {&ConsumerThread::consume, (void*)&xConsumer};
     const ThreadContext yConsumerThread        {&ConsumerThread::consume, (void*)&yConsumer};
 
+    /* ***** AGGREGATE THREAD DATA IN A SINGLE ARRAY **** */
     const ThreadContext* threadData[NUM_CHILD_THREADS] = 
     {
         &bitcoinProducerThread, 
