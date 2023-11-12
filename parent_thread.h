@@ -25,8 +25,6 @@ struct Producer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& general_mutex;
-    pthread_mutex_t& bitcoin_mutex;
     pthread_cond_t& general_monitor;
     pthread_cond_t& bitcoin_monitor;
     unsigned int* requests_produced;
@@ -40,8 +38,6 @@ struct Consumer
 {
     std::queue<Requests>& broker;
     pthread_mutex_t& broker_mutex;
-    pthread_mutex_t& general_mutex;
-    pthread_mutex_t& bitcoin_mutex;
     pthread_cond_t& general_monitor;
     pthread_cond_t& bitcoin_monitor;
     sem_t& barrier;

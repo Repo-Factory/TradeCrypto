@@ -35,7 +35,7 @@ const bool BITCOIN_FULL(Producer* producer_context)
 void produceRequest(Producer* producer_context)
 {
     // Place item in queue
-    if (!STILL_REQUESTS(producer_context)) return;
+    if (!STILL_REQUESTS(producer_context) || BROKER_FULL(producer_context)) return;
     producer_context->broker.push(producer_context->request_type);
 
     // Update metrics
