@@ -30,8 +30,7 @@ const bool consumeRequest(Consumer* consumer_context)
     report_request_removed(consumer_context->ledger, type, consumer_context->requests_consumed[consumer_context->ledger], SharedData::getQueueData(consumer_context->broker).data());
     
     // Signal to producer threads a new slot is available using appropriate monitor
-    if (type == Requests::Bitcoin) pthread_cond_signal(&consumer_context->bitcoin_monitor);
-    pthread_cond_signal(&consumer_context->general_monitor);
+    
     return getTotalRequestsConsumed(consumer_context->requests_consumed) == consumer_context->max_requests;
 }
 
@@ -41,14 +40,20 @@ void* ConsumerThread::consume(void* arg)
     auto consumer_context = (Consumer*)arg;
     while (!consumer_context->barrier_triggered)
     {
-        pthread_mutex_lock(&consumer_context->broker_mutex);
         // Sleep thread if queue is empty, pass in broker mutex to temporarily unlock and allow other threads to continue 
-        while (consumer_context->broker.empty()) {   
-            pthread_cond_wait(&consumer_context->general_monitor, &consumer_context->broker_mutex);
-        } 
+        sem_wait(&consumer_context->taken_slots);
+        const RequestType type = consumer_context->broker.front();
+        if (type == Requests::Bitcoin)
+            sem_wait(&consumer_context->taken_bitcoin);
         // Otherwise we will simply consume a request   
+        sem_wait(&consumer_context->broker_mutex);
         consumer_context->barrier_triggered = consumeRequest(consumer_context);
-        pthread_mutex_unlock(&consumer_context->broker_mutex);
+        sem_post(&consumer_context->broker_mutex);
+
+        sem_post(&consumer_context->general_monitor);
+        if (type == Requests::Bitcoin) 
+            sem_post(&consumer_context->bitcoin_monitor);
+
         std::this_thread::sleep_for(std::chrono::milliseconds(consumer_context->request_delay));
     }
     sem_post(&consumer_context->barrier);

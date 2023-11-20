@@ -35,7 +35,10 @@ const bool BITCOIN_FULL(Producer* producer_context)
 void produceRequest(Producer* producer_context)
 {
     // Place item in queue
-    if (!STILL_REQUESTS(producer_context) || BROKER_FULL(producer_context)) return;
+    if (!STILL_REQUESTS(producer_context) || BROKER_FULL(producer_context)) {
+        report_request_added(producer_context->request_type, producer_context->requests_produced, SharedData::getQueueData(producer_context->broker).data());
+        return;
+    }
     producer_context->broker.push(producer_context->request_type);
 
     // Update metrics
@@ -43,8 +46,8 @@ void produceRequest(Producer* producer_context)
     producer_context->requests_produced[producer_context->request_type]++;
     report_request_added(producer_context->request_type, producer_context->requests_produced, SharedData::getQueueData(producer_context->broker).data());
 
-    // Signal to consumers that an item was added
-    pthread_cond_signal(&producer_context->general_monitor);
+    // // Signal to consumers that an item was added
+    // sem_post(&producer_context->general_monitor);
 }
 
 // Thread function that will execute producer functionality. 
@@ -53,19 +56,21 @@ void* ProducerThread::produce(void* arg)
     auto producer_context = (Producer*)arg;
     while (STILL_REQUESTS(producer_context))
     {
-        pthread_mutex_lock(&producer_context->broker_mutex);
+        std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
+        sem_wait(&producer_context->general_monitor);
+        if (producer_context->request_type == Requests::Bitcoin)
+            sem_wait(&producer_context->bitcoin_monitor);
         // We will sleep if broker is full or if bitcoin is full and this is the bitcoin producer. We have to make sure to use the correct monitor
         // to wake up at the correct indication
-        while (BROKER_FULL(producer_context)) {
-            pthread_cond_wait(&producer_context->general_monitor, &producer_context->broker_mutex);
-        } 
-        while (BITCOIN_FULL(producer_context) && producer_context->request_type == Requests::Bitcoin) {
-            pthread_cond_wait(&producer_context->bitcoin_monitor, &producer_context->broker_mutex);
-        }
+        
         // If queue isn't fully we can simply produce a request
+        sem_wait(&producer_context->broker_mutex);
         produceRequest(producer_context);
-        pthread_mutex_unlock(&producer_context->broker_mutex);
-        std::this_thread::sleep_for(std::chrono::milliseconds(producer_context->request_delay));
+        sem_post(&producer_context->broker_mutex);
+
+        sem_post(&producer_context->taken_slots);
+        if (producer_context->request_type == Requests::Bitcoin) sem_post(&producer_context->taken_bitcoin);
+
     }
     return NULL;
 }

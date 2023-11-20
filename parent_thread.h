@@ -24,9 +24,11 @@ struct ThreadContext
 struct Producer
 {
     std::queue<Requests>& broker;
-    pthread_mutex_t& broker_mutex;
-    pthread_cond_t& general_monitor;
-    pthread_cond_t& bitcoin_monitor;
+    sem_t& broker_mutex;
+    sem_t& general_monitor;
+    sem_t& bitcoin_monitor;
+    sem_t& taken_slots;
+    sem_t& taken_bitcoin;
     unsigned int* requests_produced;
     unsigned int& total_requests;
     const Requests request_type;
@@ -37,9 +39,11 @@ struct Producer
 struct Consumer
 {
     std::queue<Requests>& broker;
-    pthread_mutex_t& broker_mutex;
-    pthread_cond_t& general_monitor;
-    pthread_cond_t& bitcoin_monitor;
+    sem_t& broker_mutex;
+    sem_t& general_monitor;
+    sem_t& bitcoin_monitor;
+    sem_t& taken_slots;
+    sem_t& taken_bitcoin;
     sem_t& barrier;
     unsigned int** requests_consumed;
     const Consumers ledger;
